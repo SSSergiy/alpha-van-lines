@@ -267,7 +267,7 @@
   border: -10px solid #ffffff;
   height: auto;
   width: 100%;
-  border-radius: 25px;
+  border-radius: 16px;
 }
 .img-block {
   position: relative;
@@ -753,6 +753,7 @@
 .happy-clients p {
   font-size: 18px;
   line-height: 130%;
+  color: #FFFFFF;
 }
 .happy-clients .happy-clients__imblock-1 {
   border-radius: 10px;
@@ -782,7 +783,7 @@
   gap: 40px;
 }
 .happy-clients .swiper-pagination-bullets {
-  height: 20px;
+  height: 0px;
   width: 100px;
 }
 .happy-clients .swiper-pagination-bullet {
@@ -1958,7 +1959,7 @@ html {
 }
 .section-form .step-one .form-calculator__description {
   display: block;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 21px;
 }
 .section-form .step-one ul {
@@ -2530,6 +2531,11 @@ html {
 }
 .section-form #step-fifth .step-two__quotes {
   margin-left: 0;
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -moz-box !important;
+  display: flex !important;
+  gap: 6px;
 }
 .step-fifthh {
   display: block !important;
@@ -2778,7 +2784,7 @@ textarea.input {
   opacity: 1;
   max-height: 640px;
   max-width: 757px;
-  width: 100% !important;
+  width: 80vw !important;
   visibility: visible;
 }
 .flatpickr-calendar.open {
@@ -3670,6 +3676,25 @@ span.flatpickr-weekday {
 .thank-you h1 span {
   color: var(--little-things);
 }
+.blog .section-form-block {
+  -webkit-box-ordinal-group: 10;
+  -webkit-order: 9;
+     -moz-box-ordinal-group: 10;
+          order: 9;
+}
+.benefits__item-text p {
+  line-height: 130%;
+}
+.swiper-wrapper h3 {
+  color: #FFFFFF;
+}
+.flatpickr-weekday {
+  font-family: "Montserrat";
+}
+.swiper-pagination-bullet {
+  width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 9px));
+  height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 10px));
+}
 #step-two1 {
   -webkit-transition: opacity 1.2s ease;
   -moz-transition: opacity 1.2s ease;
@@ -4254,16 +4279,16 @@ span.flatpickr-weekday {
       font-size: calc(0.75rem + 0.25 * (100vw - 22.5rem) / 57.5);
     }
   }
-  @supports (width: clamp( 2.5rem , -11.6847826087rem  +  63.0434782609vw , 38.75rem )) {
+  @supports (width: clamp( 2.5rem , -14.1304347826rem  +  73.9130434783vw , 45rem )) {
     .step-fifes::before {
-      width: clamp( 2.5rem , -11.6847826087rem  +  63.0434782609vw , 38.75rem );
+      width: clamp( 2.5rem , -14.1304347826rem  +  73.9130434783vw , 45rem );
     }
   }
-  @supports not (width: clamp( 2.5rem , -11.6847826087rem  +  63.0434782609vw , 38.75rem )) {
+  @supports not (width: clamp( 2.5rem , -14.1304347826rem  +  73.9130434783vw , 45rem )) {
     .step-fifes::before {
-      width: -webkit-calc(2.5rem + 36.25 * (100vw - 22.5rem) / 57.5);
-      width: -moz-calc(2.5rem + 36.25 * (100vw - 22.5rem) / 57.5);
-      width: calc(2.5rem + 36.25 * (100vw - 22.5rem) / 57.5);
+      width: -webkit-calc(2.5rem + 42.5 * (100vw - 22.5rem) / 57.5);
+      width: -moz-calc(2.5rem + 42.5 * (100vw - 22.5rem) / 57.5);
+      width: calc(2.5rem + 42.5 * (100vw - 22.5rem) / 57.5);
     }
   }
   @supports (margin-bottom: clamp( 0.0000000625rem , -2.3967390435rem  +  10.6521738043vw , 6.125rem )) {
@@ -4522,7 +4547,7 @@ span.flatpickr-weekday {
     font-size: 1rem;
   }
   .step-fifes::before {
-    width: 38.75rem;
+    width: 45rem;
   }
   .section-form-block {
     margin-bottom: 6.125rem;
@@ -4688,13 +4713,16 @@ span.flatpickr-weekday {
     -webkit-padding-after: 20px;
             padding-block-end: 20px;
   }
-  .advantages-section h2 {
-    max-width: 307px;
-  }
   .advantages-section p {
     line-height: 117%;
     -webkit-margin-after: 22px;
             margin-block-end: 22px;
+  }
+  #transformed-content ul li:nth-of-type(3) {
+    text-transform: none;
+  }
+  #transformed-content ul li:nth-of-type(5) {
+    text-transform: none;
   }
   .happy-clients {
     padding-block: 39px;
@@ -4810,7 +4838,7 @@ span.flatpickr-weekday {
     padding-inline: 24px;
   }
   .happy-clients .swiper-pagination {
-    bottom: -3px;
+    bottom: 10px;
     left: 34%;
   }
   .move-easily-quickly .phone-block {

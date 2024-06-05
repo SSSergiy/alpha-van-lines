@@ -41,6 +41,18 @@
 })();
 window["FLS"] = true;
 (function() {
+  document.querySelector(".header__button").addEventListener("click", function(event) {
+    event.preventDefault();
+    const targetId = this.getAttribute("href").substring(1);
+    const targetElement = document.getElementById(targetId);
+    const offset = targetElement.getBoundingClientRect().top + window.pageYOffset - window.innerHeight / 2 + targetElement.offsetHeight / 2;
+    window.scrollTo({
+      top: offset,
+      behavior: "smooth"
+    });
+  });
+})();
+(function() {
   const menuIcon = document.querySelector(".menu__icon");
   const menu = document.querySelector(".menu");
   menuIcon.addEventListener("click", function() {
@@ -98,11 +110,13 @@ window["FLS"] = true;
         firstItems.push(items[0].textContent);
       }
     });
+    console.log(firstItems);
     for (var i = 1; i < numItems; i++) {
       var ul = document.createElement("ul");
       var added = 0;
       lists.forEach((list, index) => {
         var items = list.querySelectorAll("li");
+        console.log(numItems);
         if (items[i] && added < 5) {
           var li = document.createElement("li");
           var li2 = document.createElement("li");
@@ -110,7 +124,7 @@ window["FLS"] = true;
           li.textContent = items[i].textContent;
           ul.appendChild(li);
           added++;
-          if (added < 5 && items[i + 1]) {
+          if (added < 5 && items[i]) {
             ul.appendChild(li2);
             added++;
           }
@@ -2027,22 +2041,23 @@ function FlatpickrInstance(element, instanceConfig) {
     var editableSheet = null;
     for (var i = 0; i < document.styleSheets.length; i++) {
       var sheet = document.styleSheets[i];
-      if (!sheet.cssRules)
-        continue;
-      try {
-        sheet.cssRules;
-      } catch (err) {
-        continue;
+      if (!sheet.href || sheet.href.startsWith(window.location.origin)) {
+        try {
+          if (sheet.cssRules) {
+            editableSheet = sheet;
+            break;
+          }
+        } catch (err) {
+          continue;
+        }
       }
-      editableSheet = sheet;
-      break;
     }
     return editableSheet != null ? editableSheet : createStyleSheet();
   }
   function createStyleSheet() {
-    var style2 = document.createElement("style");
-    document.head.appendChild(style2);
-    return style2.sheet;
+    var style = document.createElement("style");
+    document.head.appendChild(style);
+    return style.sheet;
   }
   function redraw() {
     if (self.config.noCalendar || self.isMobile)
@@ -2647,7 +2662,7 @@ function updateButtonState() {
     btnTwo.classList.remove("invalid-btn");
     btnTwo.classList.add("valid-btn");
   } else if ((resultDivFrom == null ? void 0 : resultDivFrom.value) === "") {
-    zipFromError.innerText = 'the "From" field must not be empty';
+    zipFromError.innerText = 'The "From" field must not be empty';
   } else if ((resultDivTo == null ? void 0 : resultDivTo.value) === "") {
     zipToError.innerText = 'the "To" field must not be empty';
   } else {
@@ -2672,7 +2687,7 @@ inputTo == null ? void 0 : inputTo.addEventListener("input", updateButtonState);
     document.getElementById("step-two-input-from-block").classList.add("error-block");
   } else if (inputTo.value === "") {
     document.getElementById("step-two-input-to-error").hidden = false;
-    document.getElementById("step-two-input-to-error").innerText = 'the "To" field must not be empty';
+    document.getElementById("step-two-input-to-error").innerText = 'The "To" field must not be empty';
     document.getElementById("step-two-input-to-block").classList.add("error-block");
   } else if (document.getElementById("step-two-btn").classList.contains("valid-btn")) {
     fromErrorMesage.innerText = "Zip Code should contain 5 digits";
