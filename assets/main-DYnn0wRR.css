@@ -854,6 +854,9 @@
   padding: 24px;
   background: rgba(255, 255, 255, 0.25);
   max-width: 623px;
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
 }
 .section-form {
   -webkit-box-ordinal-group: 2;
@@ -1654,8 +1657,17 @@ body {
 picture {
   display: inline-block;
 }
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 body {
@@ -1701,11 +1713,14 @@ h6 {
   font-weight: inherit;
   font-size: inherit;
 }
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
   content: "";
   content: none;
 }
@@ -1713,19 +1728,88 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video, button {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video,
+button {
   vertical-align: top;
 }
 .lock body {
@@ -1735,6 +1819,10 @@ time, mark, audio, video, button {
       overscroll-behavior: none;
 }
 .wrapper {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+          justify-content: center;
   min-height: 100%;
   width: 100%;
   display: -webkit-box;
@@ -1767,6 +1855,9 @@ time, mark, audio, video, button {
   max-width: 80rem;
   margin: 0 auto;
   padding: 0 0.625rem;
+}
+html {
+  scroll-behavior: smooth;
 }
 .advantages-section {
   -webkit-box-ordinal-group: 10;
@@ -2166,7 +2257,7 @@ time, mark, audio, video, button {
 }
 .section-form .error {
   width: 100%;
-  color: #EF4444;
+  color: #FFDE69;
   font-size: 14px;
   font-weight: 400;
   padding-left: 10%;
@@ -2418,7 +2509,7 @@ time, mark, audio, video, button {
   content: "";
   height: 4px;
   border-radius: 4px;
-  background: #35B882;
+  background: #02FF97;
 }
 .step-two__title span {
   color: #fff;
@@ -3579,6 +3670,70 @@ span.flatpickr-weekday {
 .thank-you h1 span {
   color: var(--little-things);
 }
+#step-two1 {
+  -webkit-transition: opacity 1.2s ease;
+  -moz-transition: opacity 1.2s ease;
+  transition: opacity 1.2s ease;
+  opacity: 0;
+  position: absolute;
+  left: -10000px;
+}
+#step-two {
+  -webkit-transition: opacity 1.2s ease;
+  -moz-transition: opacity 1.2s ease;
+  transition: opacity 1.2s ease;
+  opacity: 0;
+  position: absolute;
+  left: -10000px;
+}
+#step-three1 {
+  -webkit-transition: opacity 1.2s ease;
+  -moz-transition: opacity 1.2s ease;
+  transition: opacity 1.2s ease;
+  opacity: 0;
+  position: absolute;
+  left: -10000px;
+}
+#step-three {
+  -webkit-transition: opacity 1.2s ease;
+  -moz-transition: opacity 1.2s ease;
+  transition: opacity 1.2s ease;
+  opacity: 0;
+  position: absolute;
+  left: -10000px;
+}
+#step-fourth1 {
+  -webkit-transition: opacity 1.2s ease;
+  -moz-transition: opacity 1.2s ease;
+  transition: opacity 1.2s ease;
+  opacity: 0;
+  position: absolute;
+  left: -10000px;
+}
+#step-fourth {
+  -webkit-transition: opacity 1.2s ease;
+  -moz-transition: opacity 1.2s ease;
+  transition: opacity 1.2s ease;
+  opacity: 0;
+  position: absolute;
+  left: -10000px;
+}
+#step-fifth1 {
+  -webkit-transition: opacity 1.2s ease;
+  -moz-transition: opacity 1.2s ease;
+  transition: opacity 1.2s ease;
+  opacity: 0;
+  position: absolute;
+  left: -10000px;
+}
+#step-fifth {
+  -webkit-transition: opacity 1.2s ease;
+  -moz-transition: opacity 1.2s ease;
+  transition: opacity 1.2s ease;
+  opacity: 0;
+  position: absolute;
+  left: -10000px;
+}
 @media (320px <= width <= 1034px) {
   .benefits h2 {
     -webkit-margin-after: 19px;
@@ -4734,7 +4889,7 @@ span.flatpickr-weekday {
     -webkit-transition: left 0.3s;
     -moz-transition: left 0.3s;
     transition: left 0.3s;
-    z-index: 1;
+    z-index: 3;
   }
   .menu__body::before {
     content: "";
