@@ -793,7 +793,7 @@
   background-color: #fff;
 }
 .happy-clients .swiper-pagination {
-  bottom: 0;
+  bottom: 10px;
   left: 40%;
 }
 .happy-clients .swiper-wrapper {
@@ -4739,6 +4739,9 @@ span.flatpickr-weekday {
        -moz-box-orient: vertical;
        -moz-box-direction: reverse;
             flex-direction: column-reverse;
+  }
+  .happy-clients .swiper-pagination {
+    bottom: 0;
   }
   .happy-clients .happy-clients__imblock {
     width: 100%;
