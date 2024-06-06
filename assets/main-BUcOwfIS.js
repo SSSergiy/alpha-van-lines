@@ -3065,7 +3065,7 @@ btnFourth == null ? void 0 : btnFourth.addEventListener("click", handleClick);
   }
 })(document.body);
 (function(item, it, iti) {
-  if (iti) {
+  if (item && it && iti) {
     const movableItem = document.getElementById("section-form-block");
     const itemQuerySelector2 = document.querySelector(".happy-clients");
     const itemQuerySelector5 = document.querySelector(".partners");
