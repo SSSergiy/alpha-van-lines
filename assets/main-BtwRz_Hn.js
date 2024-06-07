@@ -3066,6 +3066,7 @@ btnFourth == null ? void 0 : btnFourth.addEventListener("click", handleClick);
 })(document.body);
 (function(item, it, iti) {
   if (item && it && iti) {
+    const fakeElement = document.querySelector("[data-fake]");
     const movableItem = document.getElementById("section-form-block");
     const itemQuerySelector2 = document.querySelector(".happy-clients");
     const itemQuerySelector5 = document.querySelector(".partners");
@@ -3080,8 +3081,10 @@ btnFourth == null ? void 0 : btnFourth.addEventListener("click", handleClick);
         if (entry == null ? void 0 : entry.isIntersecting) {
           if (entry.target === itemQuerySelector5) {
             movableItem.style.order = mediaQuery.matches ? "1" : "3";
+            fakeElement.style.order = "10";
           } else if (entry.target === itemQuerySelector2) {
             movableItem.style.order = "10";
+            fakeElement.style.order = mediaQuery.matches ? "1" : "3";
           }
         }
       });

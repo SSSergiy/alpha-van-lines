@@ -4028,6 +4028,12 @@ span.flatpickr-weekday {
   -webkit-padding-after: 5%;
           padding-block-end: 5%;
 }
+[data-fake] {
+  -webkit-box-ordinal-group: 11;
+  -webkit-order: 10;
+     -moz-box-ordinal-group: 11;
+          order: 10;
+}
 @media (320px <= width <= 1034px) {
   .benefits h2 {
     -webkit-margin-after: 19px;
