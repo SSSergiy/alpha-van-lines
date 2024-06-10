@@ -619,7 +619,7 @@
   padding-block: 60px;
 }
 .advantages-section h2 {
-  line-height: 130%;
+  line-height: 120%;
   font-family: "Anton";
   text-align: center;
   -webkit-margin-after: 14px;
@@ -1050,14 +1050,52 @@
   text-align: left;
   font-weight: 600;
   font-size: 24px;
-  line-height: 130%;
+  line-height: 120%;
   font-family: "Montserrat";
 }
 .blog .advantages-section__container p {
   text-align: left;
 }
+.blog .advantages-section__container p {
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  position: relative;
+}
+.blog .advantages-section__container p::before {
+  content: "...";
+  position: absolute;
+  bottom: -2px;
+  right: 116px;
+  z-index: 5;
+  color: #000;
+  background: white;
+  padding-inline: 2px;
+  -webkit-padding-start: 6px;
+     -moz-padding-start: 6px;
+          padding-inline-start: 6px;
+}
+.blog .advantages-section__container p::after {
+  content: " Read More";
+  position: absolute;
+  bottom: -2px;
+  right: 0;
+  z-index: 5;
+  background: white;
+  padding-inline: 2px;
+  color: #ea7900;
+  font-weight: 600;
+  -webkit-padding-start: 6px;
+     -moz-padding-start: 6px;
+          padding-inline-start: 6px;
+}
 .blog .advantages-section__container .posts-block-ivem span {
   color: var(--little-things);
+  display: inline-block;
+  vertical-align: bottom;
 }
 .blog .posts-block-ivem:hover {
   cursor: pointer;
@@ -1082,9 +1120,12 @@ aside .asside h3 {
 aside .asside li:not(:last-child) {
   -webkit-border-after: 1px solid #ebefff;
           border-block-end: 1px solid #ebefff;
+  -webkit-padding-after: 12px;
+          padding-block-end: 12px;
 }
 aside .asside li {
-  padding-block: 12px;
+  -webkit-padding-before: 12px;
+          padding-block-start: 12px;
 }
 aside .asside li:hover {
   font-weight: 500;
@@ -1108,7 +1149,7 @@ aside .asside a[href]::before {
   right: 0;
   color: #c3ccf0;
 }
-aside .asside section {
+aside .asside section:not(:last-child) {
   -webkit-margin-after: 20px;
           margin-block-end: 20px;
 }
@@ -3543,6 +3584,7 @@ span.flatpickr-weekday {
 .flatpickr-day:focus,
 .flatpickr-day.prevMonthDay:focus,
 .flatpickr-day.nextMonthDay:focus {
+  font-family: "Montserrat" !important;
   cursor: pointer;
   outline: 0;
   background: var(--little-things);
@@ -3620,7 +3662,7 @@ span.flatpickr-weekday {
 .flatpickr-day.flatpickr-disabled,
 .flatpickr-day.flatpickr-disabled:hover {
   cursor: not-allowed;
-  color: rgba(57, 57, 57, 0.1);
+  color: #848EB4;
 }
 .flatpickr-day.week.selected {
   border-radius: 0;
@@ -4015,6 +4057,9 @@ span.flatpickr-weekday {
 .blog .blog {
   color: var(--little-things);
 }
+.menu__link {
+  text-transform: uppercase;
+}
 .home .home {
   color: var(--little-things);
 }
@@ -4033,6 +4078,53 @@ span.flatpickr-weekday {
   -webkit-order: 10;
      -moz-box-ordinal-group: 11;
           order: 10;
+}
+.footer__logo-item-polisy a {
+  text-decoration: underline;
+}
+.herro-section__card h1 span {
+  color: var(--little-things);
+}
+.privacy-policy .advantages-section {
+  -webkit-margin-after: 0px;
+          margin-block-end: 0px;
+}
+.privacy-policy .advantages-section__container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: flex;
+  gap: 40px;
+}
+.privacy-policy .advantages-section__container h2 {
+  text-align: left;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 120%;
+  font-family: "Montserrat";
+  -webkit-margin-after: 20px;
+          margin-block-end: 20px;
+}
+.privacy-policy section {
+  -webkit-margin-after: 30px;
+          margin-block-end: 30px;
+}
+.privacy-policy h1 {
+  font-size: 40px;
+  text-align: center;
+  font-family: "Anton";
+  -webkit-margin-after: 30px;
+          margin-block-end: 30px;
+}
+.privacy-policy p {
+  font-size: 18px;
+  text-align: left;
+  line-height: 130%;
+  -webkit-margin-after: 20px;
+          margin-block-end: 20px;
+}
+.privacy-policy p span {
+  color: var(--little-things);
 }
 @media (320px <= width <= 1034px) {
   .benefits h2 {
@@ -4187,16 +4279,16 @@ span.flatpickr-weekday {
       font-size: calc(1.125rem + 0.125 * (100vw - 22.5rem) / 57.5);
     }
   }
-  @supports (font-size: clamp( 3rem , 2.902173913rem  +  0.4347826087vw , 3.25rem )) {
+  @supports (font-size: clamp( 2.5rem , 2.2065217391rem  +  1.3043478261vw , 3.25rem )) {
     .herro-section__card h1 {
-      font-size: clamp( 3rem , 2.902173913rem  +  0.4347826087vw , 3.25rem );
+      font-size: clamp( 2.5rem , 2.2065217391rem  +  1.3043478261vw , 3.25rem );
     }
   }
-  @supports not (font-size: clamp( 3rem , 2.902173913rem  +  0.4347826087vw , 3.25rem )) {
+  @supports not (font-size: clamp( 2.5rem , 2.2065217391rem  +  1.3043478261vw , 3.25rem )) {
     .herro-section__card h1 {
-      font-size: -webkit-calc(3rem + 0.25 * (100vw - 22.5rem) / 57.5);
-      font-size: -moz-calc(3rem + 0.25 * (100vw - 22.5rem) / 57.5);
-      font-size: calc(3rem + 0.25 * (100vw - 22.5rem) / 57.5);
+      font-size: -webkit-calc(2.5rem + 0.75 * (100vw - 22.5rem) / 57.5);
+      font-size: -moz-calc(2.5rem + 0.75 * (100vw - 22.5rem) / 57.5);
+      font-size: calc(2.5rem + 0.75 * (100vw - 22.5rem) / 57.5);
     }
   }
   @supports (font-size: clamp( 1.25rem , 1.0543478261rem  +  0.8695652174vw , 1.75rem )) {
@@ -4605,6 +4697,32 @@ span.flatpickr-weekday {
       font-size: calc(0.3125rem + 0.9375 * (100vw - 22.5rem) / 57.5);
     }
   }
+  @supports ((-webkit-padding-after: clamp( 1.875rem , 1.1413043478rem  +  3.2608695652vw , 3.75rem )) or (padding-block-end: clamp( 1.875rem , 1.1413043478rem  +  3.2608695652vw , 3.75rem ))) {
+    .privacy-policy .advantages-section {
+      -webkit-padding-after: clamp( 1.875rem , 1.1413043478rem  +  3.2608695652vw , 3.75rem );
+              padding-block-end: clamp( 1.875rem , 1.1413043478rem  +  3.2608695652vw , 3.75rem );
+    }
+  }
+  @supports not ((-webkit-padding-after: clamp( 1.875rem , 1.1413043478rem  +  3.2608695652vw , 3.75rem )) or (padding-block-end: clamp( 1.875rem , 1.1413043478rem  +  3.2608695652vw , 3.75rem ))) {
+    .privacy-policy .advantages-section {
+      -webkit-padding-after: -webkit-calc(1.875rem + 1.875 * (100vw - 22.5rem) / 57.5);
+              padding-block-end: -moz-calc(1.875rem + 1.875 * (100vw - 22.5rem) / 57.5);
+              padding-block-end: calc(1.875rem + 1.875 * (100vw - 22.5rem) / 57.5);
+    }
+  }
+  @supports ((-webkit-padding-before: clamp( 1.875rem , 1.3858695652rem  +  2.1739130435vw , 3.125rem )) or (padding-block-start: clamp( 1.875rem , 1.3858695652rem  +  2.1739130435vw , 3.125rem ))) {
+    .privacy-policy .advantages-section {
+      -webkit-padding-before: clamp( 1.875rem , 1.3858695652rem  +  2.1739130435vw , 3.125rem );
+              padding-block-start: clamp( 1.875rem , 1.3858695652rem  +  2.1739130435vw , 3.125rem );
+    }
+  }
+  @supports not ((-webkit-padding-before: clamp( 1.875rem , 1.3858695652rem  +  2.1739130435vw , 3.125rem )) or (padding-block-start: clamp( 1.875rem , 1.3858695652rem  +  2.1739130435vw , 3.125rem ))) {
+    .privacy-policy .advantages-section {
+      -webkit-padding-before: -webkit-calc(1.875rem + 1.25 * (100vw - 22.5rem) / 57.5);
+              padding-block-start: -moz-calc(1.875rem + 1.25 * (100vw - 22.5rem) / 57.5);
+              padding-block-start: calc(1.875rem + 1.25 * (100vw - 22.5rem) / 57.5);
+    }
+  }
 }
 @media (370px <= width <= 450px) {
   .benefits {
@@ -4799,6 +4917,14 @@ span.flatpickr-weekday {
   }
   .menu__link {
     font-size: 1.25rem;
+  }
+  .privacy-policy .advantages-section {
+    -webkit-padding-after: 3.75rem;
+            padding-block-end: 3.75rem;
+  }
+  .privacy-policy .advantages-section {
+    -webkit-padding-before: 3.125rem;
+            padding-block-start: 3.125rem;
   }
 }
 @media (width <= 1143px) and (min-width: 80em) {
@@ -5005,9 +5131,7 @@ span.flatpickr-weekday {
     min-height: 270px;
   }
   .advantages-section {
-    padding-block: 42px;
-    -webkit-padding-after: 20px;
-            padding-block-end: 20px;
+    padding-block: 7px;
   }
   .advantages-section p {
     line-height: 117%;
@@ -5076,12 +5200,29 @@ span.flatpickr-weekday {
        -moz-box-orient: vertical;
        -moz-box-direction: normal;
             flex-direction: column;
+    gap: 20px;
+  }
+  .blog .advantages-section__container p::before {
+    right: 107px;
+  }
+  .blog .advantages-section__container p::after {
+    font-size: 18px;
+  }
+  aside .asside h3 {
+    font-size: 24px;
+  }
+  aside .asside a[href] {
+    font-size: 18px;
+  }
+  aside .asside a[href]::before {
+    font-size: 15px;
   }
   .blog h2 {
-    font-size: 20px;
+    font-size: 38px;
   }
   .blog p {
     font-size: 18px;
+    line-height: 130%;
   }
   .section-form .step-one .form-calculator__sub-title {
     text-align: center;
@@ -5216,6 +5357,26 @@ span.flatpickr-weekday {
   }
   .knows-how .knows-how {
     color: #51C3F9;
+  }
+  [data-fake] {
+    -webkit-box-ordinal-group: 11;
+    -webkit-order: 10;
+       -moz-box-ordinal-group: 11;
+            order: 10;
+  }
+  .herro-section__card {
+    background-color: rgba(250, 250, 250, 0.9);
+  }
+  .privacy-policy .advantages-section__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+       -moz-box-orient: vertical;
+       -moz-box-direction: normal;
+            flex-direction: column;
+  }
+  .privacy-policy h1 {
+    font-size: 38px;
   }
 }
 @media (max-width: 47.99875em) {
@@ -5396,6 +5557,14 @@ span.flatpickr-weekday {
     display: none;
   }
 }
+@media (width <= 477px) {
+  .blog .advantages-section__container .post_title {
+    font-size: 20px;
+  }
+  .blog .advantages-section__container p {
+    -webkit-line-clamp: 6;
+  }
+}
 @media (max-width: 22.5em) {
   .header__logo {
     width: 8.3125rem;
@@ -5410,7 +5579,7 @@ span.flatpickr-weekday {
     font-size: 1.125rem;
   }
   .herro-section__card h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   .herro-section__card p:nth-of-type(1) {
     font-size: 1.25rem;
@@ -5524,5 +5693,13 @@ span.flatpickr-weekday {
   }
   .menu__link {
     font-size: 0.3125rem;
+  }
+  .privacy-policy .advantages-section {
+    -webkit-padding-after: 1.875rem;
+            padding-block-end: 1.875rem;
+  }
+  .privacy-policy .advantages-section {
+    -webkit-padding-before: 1.875rem;
+            padding-block-start: 1.875rem;
   }
 }
