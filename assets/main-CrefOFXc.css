@@ -1057,6 +1057,7 @@
   text-align: left;
 }
 .blog .advantages-section__container p {
+  letter-spacing: 0.794px;
   white-space: normal;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -4105,7 +4106,19 @@ span.flatpickr-weekday {
   -webkit-margin-after: 20px;
           margin-block-end: 20px;
 }
-.privacy-policy section {
+.privacy-policy .posts-block-ivems section {
+  -webkit-margin-after: 30px;
+          margin-block-end: 30px;
+}
+.privacy-policy .posts-block-ivems section:last-child {
+  -webkit-margin-after: 0px;
+          margin-block-end: 0px;
+}
+.privacy-policy .posts-block-ivems section:last-child p:last-child {
+  -webkit-margin-after: 0px;
+          margin-block-end: 0px;
+}
+.privacy-policy .posts-block-ivems section {
   -webkit-margin-after: 30px;
           margin-block-end: 30px;
 }
