@@ -202,6 +202,7 @@
 .icon-menu {
   display: none;
   position: relative;
+  right: 20px;
 }
 .company-info .company-info__container {
   display: -webkit-box;
@@ -1833,6 +1834,113 @@ aside .asside section:not(:last-child) {
 }
 #mail-code.error-block {
   border: 1px solid #EF4444;
+}
+.spollers {
+  display: grid;
+  gap: 15px;
+}
+.spollers__item {
+  font-size: 1.25rem;
+}
+.spollers__title {
+  width: 100%;
+  top: 5px;
+  cursor: default;
+  text-align: left;
+  border-radius: 0.3125rem;
+  position: relative;
+  list-style: none;
+}
+.spollers__title::marker, .spollers__title::-webkit-details-marker {
+  display: none;
+}
+._spoller-init .spollers__title {
+  cursor: pointer;
+  font-family: "Montserrat" !important;
+  font-size: 18px !important;
+  font-weight: 800;
+}
+._spoller-init .spollers__title::before {
+  -webkit-transform: translate(-75%, -50%) rotate(40deg);
+     -moz-transform: translate(-75%, -50%) rotate(40deg);
+      -ms-transform: translate(-75%, -50%) rotate(40deg);
+          transform: translate(-75%, -50%) rotate(40deg);
+}
+._spoller-init .spollers__title::after {
+  -webkit-transform: translate(0, -50%) rotate(-40deg);
+     -moz-transform: translate(0, -50%) rotate(-40deg);
+      -ms-transform: translate(0, -50%) rotate(-40deg);
+          transform: translate(0, -50%) rotate(-40deg);
+}
+._spoller-init .spollers__title._spoller-active::before {
+  -webkit-transform: translateX(-75%) rotate(-40deg);
+     -moz-transform: translateX(-75%) rotate(-40deg);
+      -ms-transform: translateX(-75%) rotate(-40deg);
+          transform: translateX(-75%) rotate(-40deg);
+}
+._spoller-init .spollers__title._spoller-active::after {
+  -webkit-transform: rotate(40deg);
+     -moz-transform: rotate(40deg);
+      -ms-transform: rotate(40deg);
+          transform: rotate(40deg);
+}
+._spoller-init ._spoller-init .spollers__title {
+  position: relative;
+  width: 100%;
+  text-align: left;
+}
+._spoller-init ._spoller-init .spollers__title::before, ._spoller-init ._spoller-init .spollers__title::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0.75rem;
+  height: 0.0625rem;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  width: 0.625rem;
+  background-color: #000;
+}
+._spoller-init ._spoller-init .spollers__title::before {
+  -webkit-transform: rotate(40deg);
+     -moz-transform: rotate(40deg);
+      -ms-transform: rotate(40deg);
+          transform: rotate(40deg);
+  right: 0.4375rem;
+}
+._spoller-init ._spoller-init .spollers__title::after {
+  -webkit-transform: rotate(-40deg);
+     -moz-transform: rotate(-40deg);
+      -ms-transform: rotate(-40deg);
+          transform: rotate(-40deg);
+}
+._spoller-init .spollers__title._spoller-active::before {
+  -webkit-transform: rotate(-40deg);
+     -moz-transform: rotate(-40deg);
+      -ms-transform: rotate(-40deg);
+          transform: rotate(-40deg);
+}
+._spoller-init .spollers__title._spoller-active::after {
+  -webkit-transform: rotate(40deg);
+     -moz-transform: rotate(40deg);
+      -ms-transform: rotate(40deg);
+          transform: rotate(40deg);
+}
+.spollers__body {
+  padding-inline: 10px;
+  border-radius: 0.3125rem;
+  background: #222;
+}
+.spollers__body a {
+  padding-block: 8px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  font-family: "Montserrat";
+}
+.spollers__body a:not(:last-child) {
+  -webkit-border-after: #362b1f;
+          border-block-end: #362b1f;
 }
 .footer {
   -webkit-box-ordinal-group: 12;
@@ -3908,6 +4016,11 @@ span.flatpickr-weekday {
   background-color: #ffa646;
   cursor: pointer;
 }
+.spollers__title {
+  font-family: "Montserrat" !important;
+  font-size: 20px !important;
+  font-weight: 800;
+}
 .menu__item {
   -webkit-transition: background-color 0.3s ease, cursor 0.3s ease;
   -moz-transition: background-color 0.3s ease, cursor 0.3s ease;
@@ -4138,6 +4251,36 @@ span.flatpickr-weekday {
 }
 .privacy-policy p span {
   color: var(--little-things);
+}
+.header__menu.menu ._icon-Arrow---Right-2:before {
+  display: none;
+}
+._icon-Arrow---Right-2:before {
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  -moz-transition: transform 0.5s ease, -moz-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease, -moz-transform 0.5s ease;
+}
+._icon-Arrow---Right-2:has(details[open]):before {
+  -webkit-transform: rotate(90deg);
+     -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.spollers__item {
+  position: absolute;
+  max-width: 371px;
+}
+.spollers__item a {
+  color: #ffffff;
+}
+.spollers__item a:hover {
+  color: #ffb05c;
+}
+.spollers__title._spoller-active {
+  -webkit-margin-after: 10px;
+          margin-block-end: 10px;
 }
 @media (320px <= width <= 1034px) {
   .benefits h2 {
@@ -5251,6 +5394,9 @@ span.flatpickr-weekday {
   .section-form .error {
     padding-left: 0;
   }
+  .spollers__body a {
+    font-size: 12px;
+  }
   .footer .footer__container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -5356,19 +5502,14 @@ span.flatpickr-weekday {
     -webkit-margin-after: 0px;
             margin-block-end: 0px;
   }
+  .menu__item .spollers__body {
+    -webkit-margin-after: -10px;
+            margin-block-end: -10px;
+  }
   .active {
     color: #51C3F9;
   }
   .blog .blog {
-    color: #51C3F9;
-  }
-  .home .home {
-    color: #51C3F9;
-  }
-  .about-us .about-us {
-    color: #51C3F9;
-  }
-  .knows-how .knows-how {
     color: #51C3F9;
   }
   [data-fake] {
@@ -5391,6 +5532,13 @@ span.flatpickr-weekday {
   .privacy-policy h1 {
     font-size: 38px;
   }
+  .header__menu.menu ._icon-Arrow---Right-2:before {
+    display: block;
+    position: absolute;
+    top: 197px;
+    left: 199px;
+    font-size: 16px;
+  }
 }
 @media (max-width: 47.99875em) {
   .menu {
@@ -5400,7 +5548,7 @@ span.flatpickr-weekday {
             order: 2;
   }
   .menu__body {
-    background-color: var(--little-things);
+    background: #222;
     position: fixed;
     width: 100%;
     height: 100%;
