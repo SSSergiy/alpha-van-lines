@@ -5906,9 +5906,6 @@ span.flatpickr-weekday {
   .active {
     color: #51C3F9;
   }
-  .blog .blog {
-    color: #51C3F9;
-  }
   [data-fake] {
     -webkit-box-ordinal-group: 11;
     -webkit-order: 10;
