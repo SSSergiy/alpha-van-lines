@@ -3335,28 +3335,23 @@ btnFourth == null ? void 0 : btnFourth.addEventListener("click", handleClick);
 (function() {
   var element = document.querySelector(".menu__item._icon-Arrow---Right-2");
   if (!element) {
-    console.error("Элемент не найден");
     return;
   }
   var selectTitle = element.querySelector(".spollers__title");
   function handleHoverEvents() {
     var screenWidth = window.innerWidth;
     if (screenWidth > 768) {
-      console.log("Добавление событий hover");
       selectTitle.addEventListener("mouseenter", handleMouseEnter);
       element.addEventListener("mouseleave", handleMouseLeaveAll);
     } else {
-      console.log("Удаление событий hover");
       selectTitle.removeEventListener("mouseenter", handleMouseEnter);
       element.removeEventListener("mouseleave", handleMouseLeaveAll);
     }
   }
   function handleMouseEnter() {
-    console.log("mouseenter клик");
     selectTitle.click();
   }
   function handleMouseLeaveAll(event) {
-    console.log("mouseleave с дочерних элементов");
     if (!isMouseOverElement(event)) {
       selectTitle.click();
     }

@@ -1844,7 +1844,7 @@ aside .asside section:not(:last-child) {
 }
 .spollers__title {
   width: 100%;
-  top: 5px;
+  top: 2px;
   cursor: default;
   text-align: left;
   border-radius: 0.3125rem;
@@ -4011,6 +4011,8 @@ span.flatpickr-weekday {
   -webkit-transition: background-color 0.3s ease, cursor 0.3s ease;
   -moz-transition: background-color 0.3s ease, cursor 0.3s ease;
   transition: background-color 0.3s ease, cursor 0.3s ease;
+  position: relative;
+  z-index: 3;
 }
 .header__button:hover {
   background-color: #ffa646;
@@ -4440,9 +4442,9 @@ span.flatpickr-weekday {
   color: #ea7900;
 }
 .interstate-moving-companies .advantages-section h2 {
+  line-height: 120%;
   font-weight: 600;
   font-size: 20px;
-  line-height: 130%;
   font-family: "Montserrat";
   text-align: left;
 }
@@ -5022,6 +5024,18 @@ span.flatpickr-weekday {
       margin-bottom: calc(0.0000000625rem + 6.1249999375 * (100vw - 22.5rem) / 57.5);
     }
   }
+  @supports (top: clamp( 0.1875rem , 0.7961956522rem  +  -0.7608695652vw , 0.625rem )) {
+    .spollers__title {
+      top: clamp( 0.1875rem , 0.7961956522rem  +  -0.7608695652vw , 0.625rem );
+    }
+  }
+  @supports not (top: clamp( 0.1875rem , 0.7961956522rem  +  -0.7608695652vw , 0.625rem )) {
+    .spollers__title {
+      top: -webkit-calc(0.625rem + -0.4375 * (100vw - 22.5rem) / 57.5);
+      top: -moz-calc(0.625rem + -0.4375 * (100vw - 22.5rem) / 57.5);
+      top: calc(0.625rem + -0.4375 * (100vw - 22.5rem) / 57.5);
+    }
+  }
   @supports (font-size: clamp( 2rem , 1.5597826087rem  +  1.9565217391vw , 3.125rem )) {
     .section-form .step-one .form-calculator__title {
       font-size: clamp( 2rem , 1.5597826087rem  +  1.9565217391vw , 3.125rem );
@@ -5389,6 +5403,9 @@ span.flatpickr-weekday {
   }
   .section-form-block {
     margin-bottom: 6.125rem;
+  }
+  .spollers__title {
+    top: 0.1875rem;
   }
   .section-form .step-one .form-calculator__title {
     font-size: 3.125rem;
@@ -6002,6 +6019,7 @@ span.flatpickr-weekday {
          text-align-last: left;
   }
   .interstate-moving-companies p {
+    line-height: 130%;
     -webkit-margin-after: 12px;
             margin-block-end: 12px;
   }
@@ -6011,6 +6029,9 @@ span.flatpickr-weekday {
   .interstate-moving-companies .component h2 {
     -webkit-padding-before: 8px;
             padding-block-start: 8px;
+  }
+  .interstate-moving-companies .different ul li {
+    font-size: 18px;
   }
 }
 @media (max-width: 47.99875em) {
@@ -6318,6 +6339,9 @@ span.flatpickr-weekday {
   }
   .section-form-block {
     margin-bottom: 0.0000000625rem;
+  }
+  .spollers__title {
+    top: 0.625rem;
   }
   .section-form .step-one .form-calculator__title {
     font-size: 2rem;
