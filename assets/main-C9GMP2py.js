@@ -1,24 +1,24 @@
 (function polyfill() {
-  var relList = document.createElement("link").relList;
+  const relList = document.createElement("link").relList;
   if (relList && relList.supports && relList.supports("modulepreload")) {
     return;
   }
-  for (var link of document.querySelectorAll('link[rel="modulepreload"]')) {
+  for (const link of document.querySelectorAll('link[rel="modulepreload"]')) {
     processPreload(link);
   }
   new MutationObserver((mutations) => {
-    for (var mutation of mutations) {
+    for (const mutation of mutations) {
       if (mutation.type !== "childList") {
         continue;
       }
-      for (var node of mutation.addedNodes) {
+      for (const node of mutation.addedNodes) {
         if (node.tagName === "LINK" && node.rel === "modulepreload")
           processPreload(node);
       }
     }
   }).observe(document, { childList: true, subtree: true });
   function getFetchOpts(link) {
-    var fetchOpts = {};
+    const fetchOpts = {};
     if (link.integrity)
       fetchOpts.integrity = link.integrity;
     if (link.referrerPolicy)
@@ -35,11 +35,11 @@
     if (link.ep)
       return;
     link.ep = true;
-    var fetchOpts = getFetchOpts(link);
+    const fetchOpts = getFetchOpts(link);
     fetch(link.href, fetchOpts);
   }
 })();
-var _slideUp = (target, duration2 = 500, showmore = 0) => {
+let _slideUp = (target, duration2 = 500, showmore = 0) => {
   if (!target.classList.contains("_slide")) {
     target.classList.add("_slide");
     target.style.transitionProperty = "height, margin, padding";
@@ -71,12 +71,12 @@ var _slideUp = (target, duration2 = 500, showmore = 0) => {
     }, duration2);
   }
 };
-var _slideDown = (target, duration2 = 500, showmore = 0) => {
+let _slideDown = (target, duration2 = 500, showmore = 0) => {
   if (!target.classList.contains("_slide")) {
     target.classList.add("_slide");
     target.hidden = target.hidden ? false : null;
     showmore ? target.style.removeProperty("height") : null;
-    var height = target.offsetHeight;
+    let height = target.offsetHeight;
     target.style.overflow = "hidden";
     target.style.height = showmore ? `${showmore}px` : `0px`;
     target.style.paddingTop = 0;
@@ -105,7 +105,7 @@ var _slideDown = (target, duration2 = 500, showmore = 0) => {
     }, duration2);
   }
 };
-var _slideToggle = (target, duration2 = 500) => {
+let _slideToggle = (target, duration2 = 500) => {
   if (target.hidden) {
     return _slideDown(target, duration2);
   } else {
@@ -113,9 +113,9 @@ var _slideToggle = (target, duration2 = 500) => {
   }
 };
 function spollers() {
-  var spollersArray = document.querySelectorAll("[data-spollers]");
+  const spollersArray = document.querySelectorAll("[data-spollers]");
   if (spollersArray.length > 0) {
-    var initSpollers2 = function(spollersArray2, matchMedia = false) {
+    let initSpollers2 = function(spollersArray2, matchMedia = false) {
       spollersArray2.forEach((spollersBlock) => {
         spollersBlock = matchMedia ? spollersBlock.item : spollersBlock;
         if (matchMedia.matches || !matchMedia) {
@@ -127,10 +127,10 @@ function spollers() {
         }
       });
     }, initSpollerBody2 = function(spollersBlock, hideSpollerBody = true) {
-      var spollerItems = spollersBlock.querySelectorAll("details");
+      let spollerItems = spollersBlock.querySelectorAll("details");
       if (spollerItems.length) {
         spollerItems.forEach((spollerItem) => {
-          var spollerTitle = spollerItem.querySelector("summary");
+          let spollerTitle = spollerItem.querySelector("summary");
           if (hideSpollerBody) {
             spollerTitle.removeAttribute("tabindex");
             if (!spollerItem.hasAttribute("data-open")) {
@@ -149,16 +149,16 @@ function spollers() {
         });
       }
     }, setSpollerAction2 = function(e) {
-      var el = e.target;
+      const el = e.target;
       if (el.closest("summary") && el.closest("[data-spollers]")) {
         e.preventDefault();
         if (el.closest("[data-spollers]").classList.contains("_spoller-init")) {
-          var spollerTitle = el.closest("summary");
-          var spollerBlock = spollerTitle.closest("details");
-          var spollersBlock = spollerTitle.closest("[data-spollers]");
-          var oneSpoller = spollersBlock.hasAttribute("data-one-spoller");
-          var scrollSpoller = spollerBlock.hasAttribute("data-spoller-scroll");
-          var spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+          const spollerTitle = el.closest("summary");
+          const spollerBlock = spollerTitle.closest("details");
+          const spollersBlock = spollerTitle.closest("[data-spollers]");
+          const oneSpoller = spollersBlock.hasAttribute("data-one-spoller");
+          const scrollSpoller = spollerBlock.hasAttribute("data-spoller-scroll");
+          const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
           if (!spollersBlock.querySelectorAll("._slide").length) {
             if (oneSpoller && !spollerBlock.open) {
               hideSpollersBody2(spollersBlock);
@@ -169,9 +169,9 @@ function spollers() {
             spollerTitle.classList.toggle("_spoller-active");
             _slideToggle(spollerTitle.nextElementSibling, spollerSpeed);
             if (scrollSpoller && spollerTitle.classList.contains("_spoller-active")) {
-              var scrollSpollerValue = spollerBlock.dataset.spollerScroll;
-              var scrollSpollerOffset = +scrollSpollerValue ? +scrollSpollerValue : 0;
-              var scrollSpollerNoHeader = spollerBlock.hasAttribute("data-spoller-scroll-noheader") ? document.querySelector(".header").offsetHeight : 0;
+              const scrollSpollerValue = spollerBlock.dataset.spollerScroll;
+              const scrollSpollerOffset = +scrollSpollerValue ? +scrollSpollerValue : 0;
+              const scrollSpollerNoHeader = spollerBlock.hasAttribute("data-spoller-scroll-noheader") ? document.querySelector(".header").offsetHeight : 0;
               window.scrollTo(
                 {
                   top: spollerBlock.offsetTop - (scrollSpollerOffset + scrollSpollerNoHeader),
@@ -183,13 +183,13 @@ function spollers() {
         }
       }
       if (!el.closest("[data-spollers]")) {
-        var spollersClose = document.querySelectorAll("[data-spoller-close]");
+        const spollersClose = document.querySelectorAll("[data-spoller-close]");
         if (spollersClose.length) {
           spollersClose.forEach((spollerClose) => {
-            var spollersBlock = spollerClose.closest("[data-spollers]");
-            var spollerCloseBlock = spollerClose.parentNode;
+            const spollersBlock = spollerClose.closest("[data-spollers]");
+            const spollerCloseBlock = spollerClose.parentNode;
             if (spollersBlock.classList.contains("_spoller-init")) {
-              var spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+              const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
               spollerClose.classList.remove("_spoller-active");
               _slideUp(spollerClose.nextElementSibling, spollerSpeed);
               setTimeout(() => {
@@ -200,10 +200,10 @@ function spollers() {
         }
       }
     }, hideSpollersBody2 = function(spollersBlock) {
-      var spollerActiveBlock = spollersBlock.querySelector("details[open]");
+      const spollerActiveBlock = spollersBlock.querySelector("details[open]");
       if (spollerActiveBlock && !spollersBlock.querySelectorAll("._slide").length) {
-        var spollerActiveTitle = spollerActiveBlock.querySelector("summary");
-        var spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
+        const spollerActiveTitle = spollerActiveBlock.querySelector("summary");
+        const spollerSpeed = spollersBlock.dataset.spollersSpeed ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
         spollerActiveTitle.classList.remove("_spoller-active");
         _slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
         setTimeout(() => {
@@ -213,13 +213,13 @@ function spollers() {
     };
     var initSpollers = initSpollers2, initSpollerBody = initSpollerBody2, setSpollerAction = setSpollerAction2, hideSpollersBody = hideSpollersBody2;
     document.addEventListener("click", setSpollerAction2);
-    var spollersRegular = Array.from(spollersArray).filter(function(item, index, self) {
+    const spollersRegular = Array.from(spollersArray).filter(function(item, index, self) {
       return !item.dataset.spollers.split(",")[0];
     });
     if (spollersRegular.length) {
       initSpollers2(spollersRegular);
     }
-    var mdQueriesArray = dataMediaQueries(spollersArray, "spollers");
+    let mdQueriesArray = dataMediaQueries(spollersArray, "spollers");
     if (mdQueriesArray && mdQueriesArray.length) {
       mdQueriesArray.forEach((mdQueriesItem) => {
         mdQueriesItem.matchMedia.addEventListener("change", function() {
@@ -236,34 +236,34 @@ function uniqArray(array) {
   });
 }
 function dataMediaQueries(array, dataSetValue) {
-  var media = Array.from(array).filter(function(item, index, self) {
+  const media = Array.from(array).filter(function(item, index, self) {
     if (item.dataset[dataSetValue]) {
       return item.dataset[dataSetValue].split(",")[0];
     }
   });
   if (media.length) {
-    var breakpointsArray = [];
+    const breakpointsArray = [];
     media.forEach((item) => {
-      var params = item.dataset[dataSetValue];
-      var breakpoint = {};
-      var paramsArray = params.split(",");
+      const params = item.dataset[dataSetValue];
+      const breakpoint = {};
+      const paramsArray = params.split(",");
       breakpoint.value = paramsArray[0];
       breakpoint.type = paramsArray[1] ? paramsArray[1].trim() : "max";
       breakpoint.item = item;
       breakpointsArray.push(breakpoint);
     });
-    var mdQueries = breakpointsArray.map(function(item) {
+    let mdQueries = breakpointsArray.map(function(item) {
       return "(" + item.type + "-width: " + item.value + "px)," + item.value + "," + item.type;
     });
     mdQueries = uniqArray(mdQueries);
-    var mdQueriesArray = [];
+    const mdQueriesArray = [];
     if (mdQueries.length) {
       mdQueries.forEach((breakpoint) => {
-        var paramsArray = breakpoint.split(",");
-        var mediaBreakpoint = paramsArray[1];
-        var mediaType = paramsArray[2];
-        var matchMedia = window.matchMedia(paramsArray[0]);
-        var itemsArray = breakpointsArray.filter(function(item) {
+        const paramsArray = breakpoint.split(",");
+        const mediaBreakpoint = paramsArray[1];
+        const mediaType = paramsArray[2];
+        const matchMedia = window.matchMedia(paramsArray[0]);
+        const itemsArray = breakpointsArray.filter(function(item) {
           if (item.value === mediaBreakpoint && item.type === mediaType) {
             return true;
           }
@@ -3236,7 +3236,7 @@ btnFourth == null ? void 0 : btnFourth.addEventListener("click", handleClick);
         errorPhone.hidden = false;
         errorPhone.innerText = "the phone number field must not be empty";
       } else if (btnFifth.classList.contains("valid-btn")) {
-        var sendDataToCRM2 = function() {
+        let sendDataToCRM2 = function() {
           var form = document.getElementById("form-step");
           var formData = new FormData(form);
           formData.append("stateForm", stateForm);
